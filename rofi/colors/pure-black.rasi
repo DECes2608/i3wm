@@ -1,0 +1,8 @@
+/* ~/.config/rofi/colors/pure-black.rasi */
+* {
+    bg:           #000000;
+    fg:           #ffffff;
+    fg-dim:       #ffffff50;
+    sel:          #ffffff15;
+    border-color: #1a1a1a;
+}

@@ -1,0 +1,8 @@
+/* meadow.rasi — pastoral mavi-yeşil, gruvbox sıcaklığıyla */
+* {
+    bg:           #222927;  /* derin çimen arka plan */
+    fg:           #dce8e0;  /* ay ışığı metin */
+    fg-dim:       #4a6358;  /* soluk çayır — placeholder */
+    sel:          #2e4a42;  /* seçili satır: koyu yeşil vurgu */
+    border-color: #a8c5b5;  /* soluk mavi-yeşil kenar — gökyüzü tonu */
+}

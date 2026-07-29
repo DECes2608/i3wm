@@ -1,0 +1,62 @@
+configuration {
+    show-icons:          false;
+    font:                "Monocraft 11";
+    drun-display-format: "{name}";
+}
+
+/* Aktif etmek istediğin temanın başındaki yorum satırını (//) kaldır, diğerini kapat */
+// @import "colors/dracula.rasi"
+//@import "colors/pure-black.rasi"
+//@import "colors/gruvbox.rasi"
+@import "colors/pure-black.rasi"
+
+* {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+window {
+    location:         center;
+    anchor:           center;
+    width:            200px;
+    background-color: @bg;
+    border:           1px;
+    border-color:     @border-color; /* Dinamik border rengi */
+    padding:          8px;
+}
+
+mainbox {
+    spacing:          0px;
+    background-color: @bg;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    padding:          6px 8px;
+    background-color: @bg;
+    border:           0px;
+    children:         [ entry ];
+}
+
+entry {
+    placeholder:       "Neden?";
+    placeholder-color: @fg-dim;
+    text-color:        @fg;
+}
+
+listview {
+    lines:            5;
+    columns:          1;
+    fixed-height:     true;
+    scrollbar:        false;
+    border:           0px;
+    margin:           4px 0px 0px;
+}
+
+element normal.normal    { background-color: @bg;  text-color: @fg; }
+element alternate.normal { background-color: @bg;  text-color: @fg; }
+element selected.normal  { background-color: @sel; text-color: @fg; }
+
+element { padding: 5px 8px; }
+
+element-text { vertical-align: 0.5; }

@@ -1,0 +1,10 @@
+# Değişkenler
+set $mod Mod4
+font pango:Monocraft 11
+
+# Modüller
+include ~/.config/i3/config.d/bk.conf
+include ~/.config/i3/config.d/rules.conf
+include ~/.config/i3/config.d/specialws.conf
+include ~/.config/i3/config.d/binds.conf
+include ~/.config/i3/config.d/startup.conf

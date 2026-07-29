@@ -1,0 +1,7 @@
+* {
+    bg:           #282828;  /* Koyu arka plan */
+    fg:           #ebdbb2;  /* Açık krem metin */
+    fg-dim:       #a89984;  /* Sönük gri metin */
+    sel:          #3c3836;  /* Seçili eleman arka planı (hafif açık gri) */
+    border-color: #fabd2f;  /* Vurgu için senin seçtiğin sarı/turuncu */
+}
