@@ -64,6 +64,10 @@ header "XBPS Repo Güncelleme"
 
 info "Paket veritabanı güncelleniyor..."
 sudo xbps-install -Su xbps
+
+info "nonfree repo açılıyor (nvidia driver için gerekli)..."
+sudo xbps-install -y void-repo-nonfree
+
 sudo xbps-install -S
 success "Repo indeksi güncellendi"
 
@@ -100,6 +104,7 @@ XBPS_PKGS=(
 
     # Sistem araçları
     polkit-gnome
+    elogind
     brightnessctl
     upower
     gtk+3
@@ -111,6 +116,10 @@ XBPS_PKGS=(
     xorg-video-drivers
     xdg-user-dirs
     dunst
+    papirus-icon-theme
+
+    # Tarayıcı
+    firefox
 
     # Dosya yönetimi
     yazi
@@ -143,6 +152,9 @@ XBPS_PKGS=(
     mpd
     ncmpcpp
     mpc
+
+    # Ekran kartı sürücüsü (nonfree repo yukarıda açıldı)
+    nvidia
 )
 
 info "Kurulacak paketler:"
@@ -157,13 +169,18 @@ success "Tüm paketler kuruldu!"
 header "Eskiden AUR Gerektiren Paketler"
 
 # Arch/yay sürümünde AUR'dan kurulan paketler: ncspot, localsend-bin, copyq
+# Ayrıca binds.conf/rules.conf içinde discord da kullanılıyor.
 # Void'de AUR yok ve hiçbir şey kaynaktan derlenmiyor. Sadece resmi xbps
 # repolarında bulunanlar kurulur, bulunmayanlar sessizce atlanır.
+# Not: discord şu an Void'in resmi xbps repolarında YOK ("restricted" paket,
+# Void ekibi tarafından binary olarak dağıtılmıyor), muhtemelen atlanacak —
+# Flatpak alternatifini düşünebilirsin.
 
 declare -A EXTRA_PKGS=(
     [ncspot]="ncspot"
     [copyq]="CopyQ"
     [localsend]="localsend"
+    [discord]="discord"
 )
 
 TO_INSTALL=()
@@ -233,6 +250,13 @@ for dir in i3 rofi polybar kitty dunst picom; do
     fi
 done
 
+# picom.conf'taki window-shader-fg-rule /home/deces/... olarak hardcode
+# edilmiş; kullanıcı adın farklıysa shader hiç yüklenmez. Gerçek $HOME'a çeviriyoruz.
+if [[ -f "$CONFIG_DIR/picom/picom.conf" ]]; then
+    sed -i "s|/home/[^/]*/\.config/picom|$CONFIG_DIR/picom|g" "$CONFIG_DIR/picom/picom.conf"
+    success "picom.conf içindeki shader yolu $HOME'a göre düzeltildi"
+fi
+
 # ── Neovim dagzirvesi teması ──────────────────────────────
 header "Neovim Teması (dagzirvesi)"
 
@@ -243,6 +267,25 @@ if [[ -f "$DOTFILES_DIR/dagzirvesi.lua" ]]; then
 else
     warning "dagzirvesi.lua bulunamadı, manuel kopyalaman gerekiyor"
     info "Beklenen konum: $DOTFILES_DIR/dagzirvesi.lua"
+fi
+
+# ── Monocraft fontu ────────────────────────────────────────
+header "Monocraft Fontu"
+
+# rofi/config.rasi ve polybar/config.ini "Monocraft" fontunu kullanıyor.
+# xbps'te paketi yok; xbps-src ile derlemek yerine hazır .ttc binary'sini
+# GitHub Releases'ten indirip kopyalıyoruz (derleme değil, sadece indirme).
+FONT_DIR="$HOME/.local/share/fonts"
+mkdir -p "$FONT_DIR"
+if [[ -f "$FONT_DIR/Monocraft.ttc" ]]; then
+    success "Monocraft zaten kurulu"
+elif curl -fsSL -o "$FONT_DIR/Monocraft.ttc" \
+    "https://github.com/IdreesInc/Monocraft/releases/latest/download/Monocraft.ttc"; then
+    fc-cache -f "$FONT_DIR" &>/dev/null
+    success "Monocraft kuruldu"
+else
+    warning "Monocraft indirilemedi, manuel kurman gerekebilir"
+    info "https://github.com/IdreesInc/Monocraft/releases"
 fi
 
 # ── Fish PATH ayarı ───────────────────────────────────────
