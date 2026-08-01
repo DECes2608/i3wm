@@ -8,3 +8,4 @@ include ~/.config/i3/config.d/rules.conf
 include ~/.config/i3/config.d/specialws.conf
 include ~/.config/i3/config.d/binds.conf
 include ~/.config/i3/config.d/startup.conf
+include ~/.config/i3/config.d/look.conf
