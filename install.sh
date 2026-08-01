@@ -73,7 +73,7 @@ header "Temel Sistem Paketleri"
 XBPS_PKGS=(
     # i3 ekosistemi
     i3
-    i3status
+    polybar
     rofi
     picom
     feh
@@ -223,7 +223,7 @@ cp -r "$CONFIG_DIR" "$BACKUP_DIR" 2>/dev/null || true
 success "Yedek alındı: $BACKUP_DIR"
 
 # Kopyala (symlink değil)
-for dir in i3 picom dunst kitty yazi nvim zathura; do
+for dir in i3 rofi polybar kitty dunst; do
     if [[ -d "$DOTFILES_DIR/$dir" ]]; then
         rm -rf "$CONFIG_DIR/$dir"
         cp -r "$DOTFILES_DIR/$dir" "$CONFIG_DIR/$dir"
