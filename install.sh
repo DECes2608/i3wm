@@ -223,7 +223,7 @@ cp -r "$CONFIG_DIR" "$BACKUP_DIR" 2>/dev/null || true
 success "Yedek alındı: $BACKUP_DIR"
 
 # Kopyala (symlink değil)
-for dir in i3 rofi polybar kitty dunst; do
+for dir in i3 rofi polybar kitty dunst picom; do
     if [[ -d "$DOTFILES_DIR/$dir" ]]; then
         rm -rf "$CONFIG_DIR/$dir"
         cp -r "$DOTFILES_DIR/$dir" "$CONFIG_DIR/$dir"
