@@ -13,6 +13,7 @@ cp -r rofi .config/
 cp -r polybar .config/
 cp -r kitty .config/
 cp -r dunst .config/
+cp -r picom .config/
 ```
 
 
