@@ -20,4 +20,5 @@ cp -r dunst .config/
 
 ```bash
 git clone https://github.com/DECes2608/i3wm
-cd i3wm && bash install.sh```
+cd i3wm && bash install.sh
+```
