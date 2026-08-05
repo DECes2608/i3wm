@@ -1,6 +1,9 @@
 # i3wm
 
-Void Linux üzerinde i3 için kişisel dotfiles: `i3`, `polybar`, `rofi`, `picom`, `kitty`, `dunst`.
+<img width="1920" height="1080" alt="resim" src="https://github.com/user-attachments/assets/1ebf8c0d-2370-49cb-bf45-31764a18f7b0" />
+
+
+i3 için kişisel dotfiles: `i3`, `polybar`, `rofi`, `picom`, `kitty`, `dunst`.
 
 - **WM:** i3 (X11)
 - **Bar:** polybar
@@ -46,9 +49,9 @@ Tüm kısayollar `i3/config.d/binds.conf` içinde. Öne çıkanlar:
 
 | Tuş | İşlev |
 |---|---|
-| `$mod+Return` | kitty |
+| `$mod+Return` | st |
 | `$mod+d` | rofi (drun) |
-| `$mod+b` | firefox |
+| `$mod+b` | librewolf |
 | `$mod+e` | yazi |
 | `$mod+c` | nvim |
 | `$mod+x` | powermenu |
