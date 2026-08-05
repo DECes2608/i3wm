@@ -52,3 +52,19 @@
     foreground = "#ffffff"
     frame_color = "#999999"
     timeout = 0
+
+# ==========================================
+# SES VE PARLAKLIK İÇİN ÖZEL KURALLAR
+# ==========================================
+
+[volume]
+    appname = "volume"
+    set_stack_tag = "volume"
+    timeout = 1.5
+    history_ignore = yes
+
+[brightness]
+    appname = "brightness"
+    set_stack_tag = "brightness"
+    timeout = 1.5
+    history_ignore = yes
