@@ -59,3 +59,8 @@ Tüm kısayollar `i3/config.d/binds.conf` içinde. Öne çıkanlar:
 ## Lisans
 
 Kişisel kullanım için paylaşılmıştır, dilediğin gibi kullanabilirsin.
+
+### Önemsiz not
+
+Ben bar kullanmayı sevmiyorum bu yüzden sistemi ne kadar barla uyumlu yapsamda ekran görüntüsünde barsız paylaştım
+siz install scriptini kullanmazsanız istediğinizi kendiniz ekleyip kullanabilir yada sizin kullandığınız sisteme entegre edebilirsiniz 
